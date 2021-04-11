@@ -1,25 +1,40 @@
 package DAI.EducateOurChildren.model;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import java.util.Date;
 
-@Entity
+@Entity(name = "child")
+@Table()
 
 public class child {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(
+            updatable = false
+    )
     private int id_child;
+
+    @Column(
+            nullable = false
+    )
     private String name;
+
     private String user_name;
-    private String birth_date;
+    private Date birth_date;
     private String city;
     private String county;
     private String postal_code;
     private String address;
     private String school;
-    private int id_login;
 
-    public child(int id_child, String name, String user_name, String birth_date, String city, String county, String postal_code, String address, String school, int id_login) {
+    @ManyToOne
+    @JoinColumn(name = "id_login", referencedColumnName = "id_login")
+    private login login;
+
+    public child(int id_child, String name, String user_name, Date birth_date, String city, String county, String postal_code, String address, String school, login login) {
         this.id_child = id_child;
         this.name = name;
         this.user_name = user_name;
@@ -29,7 +44,11 @@ public class child {
         this.postal_code = postal_code;
         this.address = address;
         this.school = school;
-        this.id_login = id_login;
+        this.login = login;
+    }
+
+    public child() {
+
     }
 
     public int getId_child() {
@@ -56,11 +75,11 @@ public class child {
         this.user_name = user_name;
     }
 
-    public String getBirth_date() {
+    public Date getBirth_date() {
         return birth_date;
     }
 
-    public void setBirth_date(String birth_date) {
+    public void setBirth_date(Date birth_date) {
         this.birth_date = birth_date;
     }
 
@@ -104,11 +123,11 @@ public class child {
         this.school = school;
     }
 
-    public int getId_login() {
-        return id_login;
+    public int getlogin() {
+        return login;
     }
 
-    public void setId_login(int id_login) {
-        this.id_login = id_login;
+    public void setILogin(login login) {
+        this.login = login;
     }
 }
