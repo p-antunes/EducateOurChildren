@@ -1,6 +1,8 @@
 package DAI.EducateOurChildren.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
@@ -25,7 +27,7 @@ public class prochild_collab {
     private String address;
 
     @ManyToOne
-    @JoinColumn(name = "id_login", referencedColumnName = "id_login", nulable = false)
+    @JoinColumn(name = "id_login", referencedColumnName = "id_login", nullable = false)
     private login login;
 
 

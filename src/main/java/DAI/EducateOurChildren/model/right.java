@@ -1,9 +1,10 @@
 package DAI.EducateOurChildren.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
-@Entity(name = "material")
-@Table(name = "material")
+@Entity(name = "right")
+@Table(name = "right")
 
 public class right {
 
@@ -21,7 +22,9 @@ public class right {
         this.right = right;
     }
 
-    public right() {
+    public right(String right) {
+
+        this.right = right;
 
     }
 

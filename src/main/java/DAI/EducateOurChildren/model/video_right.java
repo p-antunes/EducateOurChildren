@@ -1,6 +1,7 @@
 package DAI.EducateOurChildren.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity(name = "video_right")
 @Table(name = "video_right")
@@ -15,9 +16,13 @@ public class video_right {
     @NotBlank(message = "Can't be blank")
     private String link_video;
 
-    public video_right(int id_video, String link_video) {
+    public video_right(String link_video) {
         this.id_video = id_video;
         this.link_video = link_video;
+    }
+
+    public video_right() {
+
     }
 
     public int getId_video() {
@@ -33,6 +38,6 @@ public class video_right {
     }
 
     public void setLink_video(String link_video) {
-        this.link_vdeo = link_video;
+        this.link_video = link_video;
     }
 }

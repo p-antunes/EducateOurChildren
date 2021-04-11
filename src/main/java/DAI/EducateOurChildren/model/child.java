@@ -4,6 +4,8 @@ package DAI.EducateOurChildren.model;
 import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity(name = "child")
 @Table(name="child")
@@ -27,7 +29,7 @@ public class child {
     private String school;
 
     @ManyToOne
-    @JoinColumn(name = "id_login", referencedColumnName = "id_login", nulable = false)
+    @JoinColumn(name = "id_login", referencedColumnName = "id_login", nullable = false)
     private login login;
 
     public child(int id_child, String name, String user_name, Date birth_date, String city, String county, String postal_code, String address, String school, login login) {
