@@ -1,27 +1,23 @@
 package DAI.EducateOurChildren.model;
 
-import javax.persistence.Entity;
+
 import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 @Entity(name = "child")
-@Table()
+@Table(name="child")
 
 public class child {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(
-            updatable = false
-    )
     private int id_child;
 
-    @Column(
-            nullable = false
-    )
+    @NotBlank(message = "Can't be blank")
     private String name;
 
+    @NotBlank(message = "Can't be blank")
     private String user_name;
     private Date birth_date;
     private String city;
@@ -31,7 +27,7 @@ public class child {
     private String school;
 
     @ManyToOne
-    @JoinColumn(name = "id_login", referencedColumnName = "id_login")
+    @JoinColumn(name = "id_login", referencedColumnName = "id_login", nulable = false)
     private login login;
 
     public child(int id_child, String name, String user_name, Date birth_date, String city, String county, String postal_code, String address, String school, login login) {
@@ -123,7 +119,7 @@ public class child {
         this.school = school;
     }
 
-    public int getlogin() {
+    public login getlogin() {
         return login;
     }
 

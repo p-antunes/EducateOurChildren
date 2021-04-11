@@ -1,25 +1,35 @@
 package DAI.EducateOurChildren.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import java.util.Date;
 
-@Entity
+@Entity(name = "prochild_collab")
+@Table(name="prochild_collab")
 
 public class prochild_collab {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_prochild_collab;
+
+    @NotBlank(message = "Can't be blank")
     private String name;
+
+    @NotBlank(message = "Can't be blank")
     private String user_name;
-    private String birth_date;
+    private Date birth_date;
     private String city;
     private String county;
     private String postal_code;
     private String address;
-    private int id_login;
+
+    @ManyToOne
+    @JoinColumn(name = "id_login", referencedColumnName = "id_login", nulable = false)
+    private login login;
 
 
-    public prochild_collab(int id_prochild_collab, String name, String user_name, String birth_date, String city, String county, String postal_code, String address, int id_login) {
+    public prochild_collab(int id_prochild_collab, String name, String user_name, Date birth_date, String city, String county, String postal_code, String address, login login) {
         this.id_prochild_collab = id_prochild_collab;
         this.name = name;
         this.user_name = user_name;
@@ -28,7 +38,11 @@ public class prochild_collab {
         this.county = county;
         this.postal_code = postal_code;
         this.address = address;
-        this.id_login = id_login;
+        this.login = login;
+    }
+
+    public prochild_collab() {
+
     }
 
     public String getName() {
@@ -55,11 +69,11 @@ public class prochild_collab {
         this.user_name = user_name;
     }
 
-    public String getBirth_date() {
+    public Date getBirth_date() {
         return birth_date;
     }
 
-    public void setBirth_date(String birth_date) {
+    public void setBirth_date(Date birth_date) {
         this.birth_date = birth_date;
     }
 
@@ -95,11 +109,11 @@ public class prochild_collab {
         this.address = address;
     }
 
-    public int getId_login() {
-        return id_login;
+    public login getLogin() {
+        return login;
     }
 
-    public void setId_login(int id_login) {
-        this.id_login = id_login;
+    public void setLogin(int Login) {
+        this.login = login;
     }
 }
