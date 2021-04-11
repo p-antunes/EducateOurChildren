@@ -17,7 +17,7 @@ public class childController {
     child child;
 
     @Autowired
-
+a
 
     @GetMapping
 
