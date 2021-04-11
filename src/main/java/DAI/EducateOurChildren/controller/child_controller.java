@@ -11,7 +11,7 @@ import java.util.Date;
 
 @RestController
 @RequestMapping(path = "api/v1/child")
-public class childController {
+public class child_controller {
 
     @Autowired
     child child;
