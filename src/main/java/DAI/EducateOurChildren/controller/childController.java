@@ -2,7 +2,10 @@ package DAI.EducateOurChildren.controller;
 
 
 import DAI.EducateOurChildren.model.child;
+import DAI.EducateOurChildren.response.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
@@ -13,33 +16,22 @@ public class childController {
     @Autowired
     child child;
 
+    @Autowired
+
+
     @GetMapping
 
-    @PostMaping("/child")
+    @PostMapping("/child")
     public ResponseEntity<ApiResponse> saveActivity(@RequestBody child child) {
         try {
             // Activity Attributes
-
-            int id_child = child.getId_child();
-            String name  = child.getName();
+            String name= child.getName();
+            int id_child  = child.getId_child();
             String user_name = child.getUser_name();
+            Date birth_date = child.getBirth_date();
+            String address = child.getAddress();
 
-            Date end_data  = activity.getEnd_data();
-            String title = activity.getTitle();
-            String status = "Por aprovar";
-            int spaces = activity.getSpaces();
-            Institution institution = activity.getInstitution();
-            if (init_data.compareTo(end_data) >0 || ! status.equals("Por aprovar")) {
-                return new ResponseEntity<ApiResponse>(new ApiResponse(false, "Invalid data format"),
-                        HttpStatus.BAD_REQUEST);
-            } else {
-                activityRepository.save(activity);
-                return new ResponseEntity<ApiResponse>(new ApiResponse(true, "Activity created", idActivity),
-                        HttpStatus.CREATED);
-            }
-        } catch (Exception e) {
-            return new ResponseEntity<ApiResponse>(new ApiResponse(false, "Invalid data format"),
-                    HttpStatus.BAD_REQUEST);
+
         }
     }
 
