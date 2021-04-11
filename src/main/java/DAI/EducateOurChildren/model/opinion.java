@@ -1,19 +1,25 @@
 package DAI.EducateOurChildren.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+@Entity(name = "opinion")
+@Table(name = "opinion")
 
 public class opinion {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotBlank(message = "Can't be blank")
     private int id_opinion;
     private int id_user;
 
     public opinion(int id_opinion, int id_user) {
         this.id_opinion = id_opinion;
         this.id_user = id_user;
+    }
+
+    public opinion() {
+
     }
 
     public int getId_opinion() {

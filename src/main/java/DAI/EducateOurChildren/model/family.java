@@ -1,15 +1,21 @@
 package DAI.EducateOurChildren.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
-@Entity
-
+@Entity(name = "family")
+@Table(name = "family")
 public class family {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_family;
+
+    @NotBlank(message = "Can't be blank")
     private String name;
+
+    @NotBlank(message = "Can't be blank")
     private String user_name;
     private String birth_day;
     private String city;
@@ -17,9 +23,12 @@ public class family {
     private String postal_code;
     private String address;
     private String phone_nr;
-    private int id_login;
 
-    public family(int id_family, String name, String user_name, String birth_day, String city, String county, String postal_code, String address, String phone_nr, int id_login) {
+    @ManyToOne
+    @JoinColumn(name = "id_login", referencedColumnName = "id_login", nullable = false)
+    private login login;
+
+    public family(int id_family, String name, String user_name, String birth_day, String city, String county, String postal_code, String address, String phone_nr, login login) {
         this.id_family = id_family;
         this.name = name;
         this.user_name = user_name;
@@ -29,7 +38,11 @@ public class family {
         this.postal_code = postal_code;
         this.address = address;
         this.phone_nr = phone_nr;
-        this.id_login = id_login;
+        this.login = login;
+    }
+
+    public family() {
+
     }
 
     public int getId_family() {
@@ -104,11 +117,11 @@ public class family {
         this.phone_nr = phone_nr;
     }
 
-    public int getId_login() {
-        return id_login;
+    public login getLogin() {
+        return login;
     }
 
-    public void setId_login(int id_login) {
-        this.id_login = id_login;
+    public void setLogin(login login) {
+        this.login = login;
     }
 }

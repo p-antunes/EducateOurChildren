@@ -1,21 +1,33 @@
 package DAI.EducateOurChildren.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+@Entity(name = "game_people")
+@Table(name = "game_people")
 
 public class people_game {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotBlank(message = "Can't be blank")
     private int id_people_game;
+
+
+    @NotBlank(message = "Can't be blank")
     private int id_user;
+
+
+    @NotBlank(message = "Can't be blank")
     private int id_game;
 
     public people_game(int id_people_game, int id_user, int id_game) {
         this.id_people_game = id_people_game;
         this.id_user = id_user;
         this.id_game = id_game;
+    }
+
+    public people_game() {
+
     }
 
     public int getId_people_game() {

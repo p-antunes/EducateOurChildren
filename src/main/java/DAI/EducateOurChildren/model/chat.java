@@ -3,15 +3,17 @@ package DAI.EducateOurChildren.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity
+@Entity(name = "chat")
+@Table(name="chat")
 
 public class chat {
 
     @Id
     private int id_chat;
     @Column(
-            name = "id_user",
+            name = "id_chat",
             nullable = false
     )
     private int id_user;
@@ -19,6 +21,10 @@ public class chat {
     public chat(int id_chat, int id_user) {
         this.id_chat = id_chat;
         this.id_user = id_user;
+    }
+
+    public chat() {
+
     }
 
     public int getId_chat() {
