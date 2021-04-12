@@ -16,6 +16,10 @@ public class suggestion {
         this.id_user = id_user;
     }
 
+    public suggestion() {
+
+    }
+
     public int getId_material() {
         return id_material;
     }

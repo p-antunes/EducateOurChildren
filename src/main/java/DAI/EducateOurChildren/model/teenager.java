@@ -35,6 +35,10 @@ public class teenager {
         this.id_login = id_login;
     }
 
+    public teenager() {
+
+    }
+
 
     public int getId_teenager() {
         return id_teenager;

@@ -1,9 +1,9 @@
 package DAI.EducateOurChildren.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+@Entity(name = "psychologist")
+@Table(name = "psychologist")
 
 public class psychologist {
 
@@ -28,6 +28,10 @@ public class psychologist {
         this.postal_code = postal_code;
         this.address = address;
         this.id_login = id_login;
+    }
+
+    public psychologist() {
+
     }
 
     public int getId_psychologist() {

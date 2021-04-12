@@ -2,8 +2,10 @@ package DAI.EducateOurChildren.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity
+@Entity(name = "review")
+@Table(name = "review")
 
 public class review {
 
@@ -14,6 +16,10 @@ public class review {
     public review(int id_review, int id_user) {
         this.id_review = id_review;
         this.id_user = id_user;
+    }
+
+    public review() {
+
     }
 
     public int getId_review() {

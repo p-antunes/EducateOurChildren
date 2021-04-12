@@ -23,7 +23,6 @@ public class video_right_service {
     }
 
     public static void addNewVideoRight(video_right video_right) {
-
         VideoRightRepository.save(video_right);
     }
 
