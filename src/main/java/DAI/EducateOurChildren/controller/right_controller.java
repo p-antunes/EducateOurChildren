@@ -2,41 +2,36 @@ package DAI.EducateOurChildren.controller;
 
 
 import DAI.EducateOurChildren.model.right;
-import DAI.EducateOurChildren.response.ApiResponse;
+import DAI.EducateOurChildren.service.right_service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-    @RequestMapping(value = "/api")
-    public class right_controller {
+@RequestMapping(value = "/api")
+public class right_controller {
+
+    private final right_service RightService;
 
     @Autowired
-    DAI.EducateOurChildren.repository.rightRepository rightRepository;
+    public right_controller(right_service rightService) {
+        RightService = rightService;
+    }
 
     @GetMapping
+    public List<right> getRight(){
+        return right_service.getRight();
+    }
 
-    @PostMapping("/right")
-    public ResponseEntity<ApiResponse> saveActivity(@RequestBody right right) {
-        try {
-            // Activity Attributes
-            int id_right= right.getId_right();
+    @PostMapping
+    public void registerNewRight(@RequestBody right right){
+        right_service.addNewRight(right);
+    }
 
-            String rights = right.getRight();
-
-            //Create right
-            right newright= new right(rights);
-            rightRepository.save(newright);
-
-            return new ResponseEntity<ApiResponse>(new ApiResponse(true, "Direito inserido com sucesso!"),
-                    HttpStatus.CREATED);
-
-        } catch (Exception e) {
-            return new ResponseEntity<ApiResponse>(new ApiResponse(false, "Invalid data format"),
-                    HttpStatus.BAD_REQUEST);
-        }
-
+    @DeleteMapping(path = "{id_right")
+    public void deleteRight(@PathVariable("id_right") Integer id_right){
+        right_service.deleteRight(id_right);
     }
 
 }

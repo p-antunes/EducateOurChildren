@@ -28,6 +28,10 @@ public class right {
 
     }
 
+    public right() {
+
+    }
+
     public void setId_right(int id_right) {
         this.id_right = id_right;
     }

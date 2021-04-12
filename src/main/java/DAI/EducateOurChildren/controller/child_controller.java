@@ -13,12 +13,12 @@ import java.util.Date;
 @RequestMapping(path = "api/v1/child")
 public class child_controller {
 
-    @Autowired
-    child child;
+    //@Autowired
+   // child child;
 
-    @Autowired
+    //@Autowired
 
-
+    /*
     @GetMapping
 
     @PostMapping("/child")
@@ -33,6 +33,7 @@ public class child_controller {
 
 
         }
-    }
+        }*/
+
 
 }

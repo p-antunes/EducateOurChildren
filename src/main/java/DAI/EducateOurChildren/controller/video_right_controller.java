@@ -1,42 +1,36 @@
 package DAI.EducateOurChildren.controller;
 
-import DAI.EducateOurChildren.model.right;
+
 import DAI.EducateOurChildren.model.video_right;
-import DAI.EducateOurChildren.response.ApiResponse;
+import DAI.EducateOurChildren.service.video_right_service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-    @RequestMapping(value = "/api")
+@RequestMapping(value = "/api")
 public class video_right_controller {
 
+    private final video_right_service VideoRightService;
 
     @Autowired
-    DAI.EducateOurChildren.repository.videorightRepository videorightRepository;
+    public video_right_controller(video_right_service videoRightService) {
+        VideoRightService = videoRightService;
+    }
 
     @GetMapping
+    public List<video_right> getVideoRight(){
+        return video_right_service.getVideoRight();
+}
 
-    @PostMapping("/video_right")
-    public ResponseEntity<ApiResponse> saveActivity(@RequestBody video_right video_right) {
-        try {
-            // Activity Attributes
-            int id_video= video_right.getId_video();
+    @PostMapping
+    public void registerNewVideoRight(@RequestBody video_right video_right){
+        video_right_service.addNewVideoRight(video_right);
+    }
 
-            String link_video = video_right.getLink_video();
-
-            //Create video_right
-            video_right newvideoright= new video_right(link_video);
-            videorightRepository.save(newvideoright);
-
-            return new ResponseEntity<ApiResponse>(new ApiResponse(true, "Direito inserido com sucesso!"),
-                    HttpStatus.CREATED);
-
-        } catch (Exception e) {
-            return new ResponseEntity<ApiResponse>(new ApiResponse(false, "Invalid data format"),
-                    HttpStatus.BAD_REQUEST);
-        }
-
+    @DeleteMapping(path = "{id_video}")
+    public void deleteVideoRight(@PathVariable("id_video") Integer id_video){
+        video_right_service.deleteVideoRight(id_video);
     }
 }
