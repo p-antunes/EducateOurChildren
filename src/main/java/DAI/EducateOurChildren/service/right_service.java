@@ -23,12 +23,12 @@ public class right_service {
     }
 
     public static void addNewRight(right right) {
-        /*
+
         Optional<right> rightById = RightRepository.findRightById(right.getId_right());
         if (rightById.isPresent()) {
             throw new IllegalStateException("right taken")
         }
-        */
+
         RightRepository.save(right);
     }
 
