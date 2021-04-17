@@ -25,16 +25,16 @@ public class suggestion_controller {
     @GetMapping("/suggestion/{id_suggestion}")
     public suggestion findSuggestion(@PathVariable int id_suggestion) {
 
-        return SuggestionRespository.findSuggestionByid(id_suggestion);
+        return SuggestionRepository.findSuggestionById(id_suggestion);
     }
 
 
     @PostMapping("/suggestion")
     public ResponseEntity<ApiResponse> saveActivity(@RequestBody suggestion suggestion) {
         try {
-            int id_suggestion = suggestion.getid_suggestion();
-            String sug = suggestion.getsuggestion();
-            SuggestionRespository.save(suggestion);
+            int id_suggestion = suggestion.getId_suggestion();
+            String sug = suggestion.getSuggestion();
+            SuggestionRepository.save(suggestion);
             return new ResponseEntity<ApiResponse>(new ApiResponse(true, "suggestion created"),
                     HttpStatus.CREATED);
         } catch (Exception e) {
@@ -46,8 +46,8 @@ public class suggestion_controller {
     @DeleteMapping("/suggestion/{id_suggestion}")
     public ResponseEntity<ApiResponse> deleteSuggestion(@PathVariable(value = "id_suggestion") int id_suggestion) {
         try {
-            suggestion sug = SuggestionRespository.findSuggestionByid(id_suggestion);
-            SuggestionRespository.delete(sug);
+            suggestion sug = SuggestionRepository.findSuggestionById(id_suggestion);
+            SuggestionRepository.delete(sug);
             return new ResponseEntity<ApiResponse>(new ApiResponse(true, "suggestion deleted."),
                     HttpStatus.CREATED);
         } catch (Exception e) {
