@@ -1,8 +1,6 @@
 package DAI.EducateOurChildren.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity(name = "review")
 @Table(name = "review")
@@ -10,12 +8,13 @@ import javax.persistence.Table;
 public class review {
 
     @Id
-    private int  id_review;
-    private int id_user;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id_review;
+    private String review;
 
-    public review(int id_review, int id_user) {
+    public review(int id_review, String review) {
         this.id_review = id_review;
-        this.id_user = id_user;
+        this.review = review;
     }
 
     public review() {
@@ -30,11 +29,11 @@ public class review {
         this.id_review = id_review;
     }
 
-    public int getId_user() {
-        return id_user;
+    public String getReview() {
+        return review;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
+    public void setReview(String review) {
+        this.review = review;
     }
 }

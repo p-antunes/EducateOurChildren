@@ -8,6 +8,7 @@ import javax.persistence.*;
 public class psychologist {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_psychologist;
     private String name;
     private String user_name;

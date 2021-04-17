@@ -1,6 +1,8 @@
 package DAI.EducateOurChildren.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -8,6 +10,7 @@ import javax.persistence.Id;
 public class suggestion {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_suggestion;
     private String suggestion;
 
@@ -35,5 +38,6 @@ public class suggestion {
     public void setSuggestion(String suggestion) {
         this.suggestion = suggestion;
     }
+}
 
 
