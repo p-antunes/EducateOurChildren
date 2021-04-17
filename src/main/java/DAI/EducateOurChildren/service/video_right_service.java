@@ -1,6 +1,5 @@
 package DAI.EducateOurChildren.service;
 
-import DAI.EducateOurChildren.model.right;
 import DAI.EducateOurChildren.model.video_right;
 import DAI.EducateOurChildren.repository.video_right_repository;
 import org.springframework.beans.factory.annotation.Autowired;
