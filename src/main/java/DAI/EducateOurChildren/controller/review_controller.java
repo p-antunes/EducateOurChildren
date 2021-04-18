@@ -28,7 +28,7 @@ public class review_controller {
     @GetMapping("/review/{id_review}")
     public review findreview(@PathVariable int id_review) {
 
-        return ReviewRepository.findreviewByid(id_review);
+        return ReviewRepository.findReviewById(id_review);
     }
 
 
@@ -36,8 +36,8 @@ public class review_controller {
     public ResponseEntity<ApiResponse> saveActivity(@RequestBody review review) {
         try {
             int id_review = review.getId_review();
-            String rev = review.getreview();
-            reviewRespository.save(review);
+            String rev = review.getReview();
+            ReviewRepository.save(review);
             return new ResponseEntity<ApiResponse>(new ApiResponse(true, "review created"),
                     HttpStatus.CREATED);
         } catch (Exception e) {
@@ -50,8 +50,8 @@ public class review_controller {
     @DeleteMapping("/review/{id_review}")
     public ResponseEntity<ApiResponse> deletereview(@PathVariable(value = "id_review") int id_review) {
         try {
-            review rev = reviewRespository.findreviewByid(id_review);
-            reviewRespository.delete(rev);
+            review rev = ReviewRepository.findReviewById(id_review);
+            ReviewRepository.delete(rev);
             return new ResponseEntity<ApiResponse>(new ApiResponse(true, "review deleted."),
                     HttpStatus.CREATED);
         } catch (Exception e) {
