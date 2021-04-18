@@ -1,7 +1,6 @@
 package DAI.EducateOurChildren.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 
 @Entity(name = "role")
 @Table(name = "role")
