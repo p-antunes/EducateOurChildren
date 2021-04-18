@@ -12,11 +12,12 @@ public class opinion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotBlank(message = "Can't be blank")
     private int id_opinion;
-    private int id_user;
+    private String opinion;
 
-    public opinion(int id_opinion, int id_user) {
+
+    public opinion(@NotBlank(message = "Can't be blank") int id_opinion, String opinion) {
         this.id_opinion = id_opinion;
-        this.id_user = id_user;
+        this.opinion = opinion;
     }
 
     public opinion() {
@@ -31,11 +32,11 @@ public class opinion {
         this.id_opinion = id_opinion;
     }
 
-    public int getId_user() {
-        return id_user;
+    public String getOpinion() {
+        return opinion;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
+    public void setOpinion(String opinion) {
+        this.opinion = opinion;
     }
 }

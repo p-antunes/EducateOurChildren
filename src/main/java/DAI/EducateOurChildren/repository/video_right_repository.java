@@ -5,13 +5,19 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
+import java.util.List;
+
 
 @Repository
 public interface video_right_repository extends JpaRepository<video_right, Integer> {
 
     @Query("SELECT v FROM video_right v WHERE v.id_video = ?1")
-    Optional<video_right> findVideoRightById(int id_video);
+    video_right findVideoRightById(int id_video);
+
+    List<video_right> findAll();
+
+    @Override
+    void delete(video_right video_right);
 
 }
 

@@ -22,11 +22,6 @@ public class right {
         this.right = right;
     }
 
-    public right(String right) {
-
-        this.right = right;
-
-    }
 
     public right() {
 
