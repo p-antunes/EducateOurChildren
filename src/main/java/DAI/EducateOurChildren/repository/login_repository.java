@@ -1,4 +1,4 @@
-package DAI.EducateOurChildren.repository;
+/*package DAI.EducateOurChildren.repository;
 
 import DAI.EducateOurChildren.model.login;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -27,4 +27,4 @@ public interface login_repository extends JpaRepository<login, Long> {
     @Modifying
     @Query("UPDATE login SET password = ?1 WHERE id_login = ?2")
     void updateLoginPassword(String password, Long id_login);
-}
+}*/
