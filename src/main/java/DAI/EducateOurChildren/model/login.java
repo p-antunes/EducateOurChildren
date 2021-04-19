@@ -23,6 +23,7 @@ public class login {
     //@Pattern(regexp = ConstantUtils.PASSWORD_PATTERN, message = "Needs at least 1 UpperCase, 1 LowerCase and 1 Number")
     private String password;
 
+
     public login(int id_login,/* @Email(message = "Insert a valid email")*/ String email, /*@NotBlank(message = "Can't be blank") @Pattern(regexp = ConstantUtils.PASSWORD_PATTERN, message = "Needs at least 1 UpperCase, 1 LowerCase and 1 Number")*/ String password) {
         this.id_login = id_login;
         this.email = email;
