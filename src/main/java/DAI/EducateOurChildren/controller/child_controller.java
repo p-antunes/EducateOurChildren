@@ -1,4 +1,4 @@
-/*package DAI.EducateOurChildren.controller;
+package DAI.EducateOurChildren.controller;
 
 import DAI.EducateOurChildren.model.child;
 import DAI.EducateOurChildren.model.custom.CreateChild;
@@ -80,4 +80,4 @@ public class child_controller {
     public void deleteChild(@PathVariable("id_child") Integer id_child){
         child_service.deleteChild(id_child);
     }
-}*/
+}

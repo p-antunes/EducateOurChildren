@@ -1,4 +1,4 @@
-/*package DAI.EducateOurChildren.repository;
+package DAI.EducateOurChildren.repository;
 
 import DAI.EducateOurChildren.model.child;
 import DAI.EducateOurChildren.model.login;
@@ -18,4 +18,4 @@ public interface child_repository extends JpaRepository<child, Integer> {
     void delete(child child);
 
 
-}*/
+}

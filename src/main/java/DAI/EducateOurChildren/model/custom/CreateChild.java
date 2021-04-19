@@ -1,4 +1,4 @@
-/*package DAI.EducateOurChildren.model.custom;
+package DAI.EducateOurChildren.model.custom;
 
 import DAI.EducateOurChildren.model.role;
 import DAI.EducateOurChildren.util.ConstantUtil;
@@ -37,17 +37,9 @@ public class CreateChild {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-
     public role getRole() {
         return role;
     }
 
-    public void setRole(role role) {
-        this.role = role;
-    }
 
-}*/
+}

@@ -1,4 +1,4 @@
-/*package DAI.EducateOurChildren.util;
+package DAI.EducateOurChildren.util;
 
 public class ConstantUtil {
     // Allow only letters and numbers
@@ -21,4 +21,4 @@ public class ConstantUtil {
 
     // Must contain 1 UpperCase, 1 LowerCase and 1 Number
     public static final String PASSWORD_PATTERN = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).*$";
-}*/
+}
